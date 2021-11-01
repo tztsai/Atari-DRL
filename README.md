@@ -1,2 +1,2 @@
 # Atari-DRL
-Deep RL agents playing Atari games
+Deep RL agents playing Atari games.
