@@ -1,6 +1,6 @@
-from spinup.algos.pytorch.ddpg.core import mlp, MLPActorCritic
-from spinup.utils.run_utils import ExperimentGrid
-from spinup import ddpg_pytorch as ddpg
+from drl.algos.pytorch.ddpg.core import mlp, MLPActorCritic
+from drl.utils.run_utils import ExperimentGrid
+from drl import ddpg_pytorch as ddpg
 import numpy as np
 import torch
 import torch.nn as nn
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     def ddpg_with_actor_critic(bugged, **kwargs):
-        from spinup.exercises.pytorch.problem_set_2.exercise2_2 import BuggedMLPActorCritic
+        from drl.exercises.pytorch.problem_set_2.exercise2_2 import BuggedMLPActorCritic
         actor_critic = BuggedMLPActorCritic if bugged else MLPActorCritic
         return ddpg(actor_critic=actor_critic, 
                     ac_kwargs=dict(hidden_sizes=[args.h]*args.l),

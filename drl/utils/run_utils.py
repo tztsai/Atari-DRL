@@ -1,8 +1,8 @@
-from spinup.user_config import DEFAULT_DATA_DIR, FORCE_DATESTAMP, \
+from drl.user_config import DEFAULT_DATA_DIR, FORCE_DATESTAMP, \
                                DEFAULT_SHORTHAND, WAIT_BEFORE_LAUNCH
-from spinup.utils.logx import colorize
-from spinup.utils.mpi_tools import mpi_fork, msg
-from spinup.utils.serialization_utils import convert_json
+from drl.utils.logx import colorize
+from drl.utils.mpi_tools import mpi_fork, msg
+from drl.utils.serialization_utils import convert_json
 import base64
 from copy import deepcopy
 import cloudpickle
@@ -45,7 +45,7 @@ def setup_logger_kwargs(exp_name, seed=None, data_dir=None, datestamp=False):
         output_dir = data_dir/YY-MM-DD_exp_name/YY-MM-DD_HH-MM-SS_exp_name_s[seed]
 
     You can force datestamp=True by setting ``FORCE_DATESTAMP=True`` in 
-    ``spinup/user_config.py``. 
+    ``drl/user_config.py``. 
 
     Args:
 
@@ -54,7 +54,7 @@ def setup_logger_kwargs(exp_name, seed=None, data_dir=None, datestamp=False):
         seed (int): Seed for random number generators used by experiment.
 
         data_dir (string): Path to folder where results should be saved.
-            Default is the ``DEFAULT_DATA_DIR`` in ``spinup/user_config.py``.
+            Default is the ``DEFAULT_DATA_DIR`` in ``drl/user_config.py``.
 
         datestamp (bool): Whether to include a date and timestamp in the
             name of the save directory.
@@ -121,7 +121,7 @@ def call_experiment(exp_name, thunk, seed=0, num_cpu=1, data_dir=None,
 
         data_dir (string): Used in configuring the logger, to decide where
             to store experiment results. Note: if left as None, data_dir will
-            default to ``DEFAULT_DATA_DIR`` from ``spinup/user_config.py``. 
+            default to ``DEFAULT_DATA_DIR`` from ``drl/user_config.py``. 
 
         **kwargs: All kwargs to pass to thunk.
 
@@ -186,10 +186,10 @@ def call_experiment(exp_name, thunk, seed=0, num_cpu=1, data_dir=None,
     # Tell the user about where results are, and how to check them
     logger_kwargs = kwargs['logger_kwargs']
 
-    plot_cmd = 'python -m spinup.run plot '+logger_kwargs['output_dir']
+    plot_cmd = 'python -m drl.run plot '+logger_kwargs['output_dir']
     plot_cmd = colorize(plot_cmd, 'green')
 
-    test_cmd = 'python -m spinup.run test_policy '+logger_kwargs['output_dir']
+    test_cmd = 'python -m drl.run test_policy '+logger_kwargs['output_dir']
     test_cmd = colorize(test_cmd, 'green')
 
     output_msg = '\n'*5 + '='*DIV_LINE_WIDTH +'\n' + dedent("""\
@@ -310,7 +310,7 @@ class ExperimentGrid:
         By default, if a shorthand isn't given, one is automatically generated
         from the key using the first three letters of each colon-separated
         term. To disable this behavior, change ``DEFAULT_SHORTHAND`` in the
-        ``spinup/user_config.py`` file to ``False``. 
+        ``drl/user_config.py`` file to ``False``. 
 
         Args:
             key (string): Name of parameter.
@@ -515,7 +515,7 @@ class ExperimentGrid:
             Launch delayed to give you a few seconds to review your experiments.
 
             To customize or disable this behavior, change WAIT_BEFORE_LAUNCH in
-            spinup/user_config.py.
+            drl/user_config.py.
 
             """), color='cyan', bold=True)+line
             print(delay_msg)

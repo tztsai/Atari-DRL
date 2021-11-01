@@ -3,10 +3,10 @@ import torch
 from torch.optim import Adam
 import gym
 import time
-import spinup.algos.pytorch.ppo.core as core
-from spinup.utils.logx import EpochLogger
-from spinup.utils.mpi_pytorch import setup_pytorch_for_mpi, sync_params, mpi_avg_grads
-from spinup.utils.mpi_tools import mpi_fork, mpi_avg, proc_id, mpi_statistics_scalar, num_procs
+import drl.algos.pytorch.ppo.core as core
+from drl.utils.logx import EpochLogger
+from drl.utils.mpi_pytorch import setup_pytorch_for_mpi, sync_params, mpi_avg_grads
+from drl.utils.mpi_tools import mpi_fork, mpi_avg, proc_id, mpi_statistics_scalar, num_procs
 
 
 class PPOBuffer:
@@ -369,7 +369,7 @@ if __name__ == '__main__':
 
     mpi_fork(args.cpu)  # run parallel code with mpi
 
-    from spinup.utils.run_utils import setup_logger_kwargs
+    from drl.utils.run_utils import setup_logger_kwargs
     logger_kwargs = setup_logger_kwargs(args.exp_name, args.seed)
 
     ppo(lambda : gym.make(args.env), actor_critic=core.MLPActorCritic,

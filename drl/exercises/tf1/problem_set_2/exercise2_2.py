@@ -1,6 +1,6 @@
-from spinup.algos.tf1.ddpg.core import mlp, mlp_actor_critic
-from spinup.utils.run_utils import ExperimentGrid
-from spinup import ddpg_tf1 as ddpg
+from drl.algos.tf1.ddpg.core import mlp, mlp_actor_critic
+from drl.utils.run_utils import ExperimentGrid
+from drl import ddpg_tf1 as ddpg
 import numpy as np
 import tensorflow as tf
 

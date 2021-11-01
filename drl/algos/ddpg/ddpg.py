@@ -4,8 +4,8 @@ import torch
 from torch.optim import Adam
 import gym
 import time
-import spinup.algos.pytorch.ddpg.core as core
-from spinup.utils.logx import EpochLogger
+import drl.algos.pytorch.ddpg.core as core
+from drl.utils.logx import EpochLogger
 
 
 class ReplayBuffer:
@@ -318,7 +318,7 @@ if __name__ == '__main__':
     parser.add_argument('--exp_name', type=str, default='ddpg')
     args = parser.parse_args()
 
-    from spinup.utils.run_utils import setup_logger_kwargs
+    from drl.utils.run_utils import setup_logger_kwargs
     logger_kwargs = setup_logger_kwargs(args.exp_name, args.seed)
 
     ddpg(lambda : gym.make(args.env), actor_critic=core.MLPActorCritic,

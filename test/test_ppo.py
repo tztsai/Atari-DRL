@@ -6,7 +6,7 @@ from functools import partial
 import gym
 import tensorflow as tf
 
-from spinup import ppo_tf1 as ppo
+from drl import ppo_tf1 as ppo
 
 
 class TestPPO(unittest.TestCase):

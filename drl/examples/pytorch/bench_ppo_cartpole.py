@@ -1,5 +1,5 @@
-from spinup.utils.run_utils import ExperimentGrid
-from spinup import ppo_pytorch
+from drl.utils.run_utils import ExperimentGrid
+from drl import ppo_pytorch
 import torch
 
 if __name__ == '__main__':

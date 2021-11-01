@@ -1,7 +1,7 @@
-import spinup
-from spinup.user_config import DEFAULT_BACKEND
-from spinup.utils.run_utils import ExperimentGrid
-from spinup.utils.serialization_utils import convert_json
+import drl
+from drl.user_config import DEFAULT_BACKEND
+from drl.utils.run_utils import ExperimentGrid
+from drl.utils.serialization_utils import convert_json
 import argparse
 import gym
 import json
@@ -53,12 +53,12 @@ def parse_and_execute_grid_search(cmd, args):
         print('\n\nUsing default backend (%s) for %s.\n'%(backend, cmd))
         cmd = cmd + '_' + backend
 
-    algo = eval('spinup.'+cmd)
+    algo = eval('drl.'+cmd)
 
     # Before all else, check to see if any of the flags is 'help'.
     valid_help = ['--help', '-h', 'help']
     if any([arg in valid_help for arg in args]):
-        print('\n\nShowing docstring for spinup.'+cmd+':\n')
+        print('\n\nShowing docstring for drl.'+cmd+':\n')
         print(algo.__doc__)
         sys.exit()
 
@@ -208,7 +208,7 @@ if __name__ == '__main__':
         help_msg = dedent("""
             Experiment in Spinning Up from the command line with
 
-            \tpython -m spinup.run CMD [ARGS...]
+            \tpython -m drl.run CMD [ARGS...]
 
             where CMD is a valid command. Current valid commands are:
             """) + str_valid_cmds
@@ -222,12 +222,12 @@ if __name__ == '__main__':
             FYI: When running an algorithm, any keyword argument to the
             algorithm function can be used as a flag, eg
 
-            \tpython -m spinup.run ppo --env HalfCheetah-v2 --clip_ratio 0.1
+            \tpython -m drl.run ppo --env HalfCheetah-v2 --clip_ratio 0.1
 
             If you need a quick refresher on valid kwargs, get the docstring
             with
 
-            \tpython -m spinup.run [algo] --help
+            \tpython -m drl.run [algo] --help
 
             See the "Running Experiments" docs page for more details.
 

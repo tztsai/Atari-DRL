@@ -5,9 +5,9 @@ import torch
 from torch.optim import Adam
 import gym
 import time
-import spinup.algos.pytorch.td3.core as core
-from spinup.algos.pytorch.td3.td3 import td3 as true_td3
-from spinup.utils.logx import EpochLogger
+import drl.algos.pytorch.td3.core as core
+from drl.algos.pytorch.td3.td3 import td3 as true_td3
+from drl.utils.logx import EpochLogger
 
 """
 
@@ -397,7 +397,7 @@ if __name__ == '__main__':
     parser.add_argument('--use_soln', action='store_true')
     args = parser.parse_args()
 
-    from spinup.utils.run_utils import setup_logger_kwargs
+    from drl.utils.run_utils import setup_logger_kwargs
     logger_kwargs = setup_logger_kwargs(args.exp_name + '-' + args.env.lower(), args.seed)
 
     all_kwargs = dict(

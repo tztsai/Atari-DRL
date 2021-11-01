@@ -1,5 +1,5 @@
-from spinup.utils.run_utils import ExperimentGrid
-from spinup import ppo_tf1
+from drl.utils.run_utils import ExperimentGrid
+from drl import ppo_tf1
 import tensorflow as tf
 
 if __name__ == '__main__':
