@@ -1,22 +1,12 @@
 # Disable TF deprecation warnings.
 # Syntax from tf1 is not expected to be compatible with tf2.
-import tensorflow as tf
-tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
-# Algorithms
-from drl.algos.tf1.ddpg.ddpg import ddpg as ddpg_tf1
-from drl.algos.tf1.ppo.ppo import ppo as ppo_tf1
-from drl.algos.tf1.sac.sac import sac as sac_tf1
-from drl.algos.tf1.td3.td3 import td3 as td3_tf1
-from drl.algos.tf1.trpo.trpo import trpo as trpo_tf1
-from drl.algos.tf1.vpg.vpg import vpg as vpg_tf1
-
-from drl.algos.pytorch.ddpg.ddpg import ddpg as ddpg_pytorch
-from drl.algos.pytorch.ppo.ppo import ppo as ppo_pytorch
-from drl.algos.pytorch.sac.sac import sac as sac_pytorch
-from drl.algos.pytorch.td3.td3 import td3 as td3_pytorch
-from drl.algos.pytorch.trpo.trpo import trpo as trpo_pytorch
-from drl.algos.pytorch.vpg.vpg import vpg as vpg_pytorch
+from drl.algos.ddpg.ddpg import ddpg
+from drl.algos.ppo.ppo import ppo
+from drl.algos.sac.sac import sac
+from drl.algos.td3.td3 import td3
+from drl.algos.trpo.trpo import trpo
+from drl.algos.vpg.vpg import vpg
 
 # Loggers
 from drl.utils.logx import Logger, EpochLogger
