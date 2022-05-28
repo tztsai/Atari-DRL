@@ -13,5 +13,5 @@ python main.py --env-name "Breakout-v3" --num-steps 2048 --num-processes 1 --lr 
 Let the agent play!
 
 ```bash
-python enjoy.py --load-dir trained_models --env-name "Breakout-v3"
+python play.py --load-dir trained_models --env-name "Breakout-v3"
 ```
